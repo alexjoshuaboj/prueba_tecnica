@@ -48,10 +48,6 @@ function initializar() {
         holaText.innerText = 'Hello'
     },2500)
 
-    //generar boton 
-    let buttonRestar = document.createElement("button")
-    buttonRestar.innerText = 'Reiniciar'
-
     setTimeout(() => {
         let content =  document.getElementById('content');
           content.removeChild(content.childNodes[0])
@@ -60,8 +56,6 @@ function initializar() {
         document.getElementById('console').appendChild(ajaxReady);
         ajaxRequest();
     }, 4500);
-
-
 
 }
 
@@ -110,7 +104,7 @@ function bye(){
     
     setTimeout(() => {
         byeText.innerText = 'Bye'
-    },2000)
+    },2500)
 
     setTimeout(() => {
         let content =  document.getElementById('content');
@@ -123,11 +117,18 @@ function bye(){
                 restart();
             };
             document.getElementById('content').appendChild(buttonRestart)
-    }, 4000);
+    }, 4500);
 }
 
 
 function restart(){
+    let body = document.getElementsByTagName("body")[0];
+    body.innerHTML = "";
+    $('body').removeClass("bg-stone-300")
+    console.log(body)
+    setTimeout(()=>{
+        initializar();
+    },1000)
 }
 
 initializar();
